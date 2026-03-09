@@ -54,9 +54,8 @@ export default function PatientDashboard() {
             <button
               key={tab.id}
               onClick={() => tab.id === "ai" ? undefined : setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-                activeTab === tab.id ? "bg-primary/20 text-primary-light" : "text-muted-foreground hover:text-foreground"
-              }`}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${activeTab === tab.id ? "bg-primary/20 text-primary-light" : "text-muted-foreground hover:text-foreground"
+                }`}
             >
               {tab.id === "ai" ? (
                 <Link href="/patient/ai-health" className="flex items-center gap-2">
@@ -159,7 +158,7 @@ export default function PatientDashboard() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-sm font-bold text-foreground">AI Health Companions</h3>
-                    <p className="text-xs text-muted-foreground">Chat with 13 specialized AI health guides</p>
+                    <p className="text-xs text-muted-foreground">Chat with 6 specialized AI health guides</p>
                   </div>
                   <ChevronDown size={16} className="text-muted-foreground rotate-[-90deg]" />
                 </motion.div>
@@ -295,9 +294,8 @@ export default function PatientDashboard() {
                   setActiveTab(tab.id)
                 }
               }}
-              className={`flex flex-col items-center gap-0.5 px-4 py-2 rounded-xl transition-colors min-w-[64px] ${
-                activeTab === tab.id ? "text-primary-light" : "text-muted-sage"
-              }`}
+              className={`flex flex-col items-center gap-0.5 px-4 py-2 rounded-xl transition-colors min-w-[64px] ${activeTab === tab.id ? "text-primary-light" : "text-muted-sage"
+                }`}
             >
               <tab.icon size={20} />
               <span className="text-[10px] font-medium">{tab.label}</span>

@@ -7,34 +7,21 @@ import { AnimatedBackground } from "@/components/abha/animated-background"
 import { AbhaLogo } from "@/components/abha/logo"
 
 const companions = [
-  { id: "yoga-trainer", name: "Yoga Trainer", desc: "Guided yoga & asanas for daily wellness", gradient: "from-[#6C5CE7] to-[#4834D4]", emoji: "person_in_lotus_position", featured: true },
-  { id: "diet-planner", name: "Diet Planner", desc: "Personalized nutrition plans for Indian diet", gradient: "from-[#00B894] to-[#55E6A5]", emoji: "green_salad", featured: true },
-  { id: "mental-health", name: "Mental Health Companion", desc: "Supportive conversations for emotional well-being", gradient: "from-[#74B9FF] to-[#A29BFE]", emoji: "person_getting_massage" },
-  { id: "fitness-coach", name: "Fitness Coach", desc: "Exercise routines tailored to your health", gradient: "from-[#F0932B] to-[#FDCB6E]", emoji: "flexed_biceps" },
-  { id: "pregnancy-care", name: "Pregnancy Care", desc: "Guidance through every trimester", gradient: "from-[#FD79A8] to-[#E84393]", emoji: "breast_feeding" },
-  { id: "elderly-care", name: "Elderly Care Assistant", desc: "Health management for senior citizens", gradient: "from-[#B8860B] to-[#DAA520]", emoji: "older_person" },
-  { id: "diabetes-manager", name: "Diabetes Manager", desc: "Blood sugar tracking & diet guidance", gradient: "from-[#00CEC9] to-[#0ABDE3]", emoji: "stethoscope" },
-  { id: "first-aid", name: "First Aid Guide", desc: "Emergency first aid instructions", gradient: "from-[#FF6B6B] to-[#EE5A24]", emoji: "ambulance" },
-  { id: "post-surgery", name: "Post-Surgery Care", desc: "Recovery guidance after procedures", gradient: "from-[#636E72] to-[#2D3436]", emoji: "hospital" },
-  { id: "child-health", name: "Child Health Advisor", desc: "Pediatric health tips & vaccination reminders", gradient: "from-[#FFEAA7] to-[#FDCB6E]", emoji: "baby" },
-  { id: "stress-relief", name: "Stress Relief Coach", desc: "Breathing exercises & relaxation techniques", gradient: "from-[#81ECEC] to-[#55E6C1]", emoji: "wind_face" },
-  { id: "meditation-guide", name: "Meditation Guide", desc: "Guided meditation for inner peace", gradient: "from-[#6C5CE7] to-[#2C2C54]", emoji: "person_in_lotus_position" },
-  { id: "nutrition-advisor", name: "Nutrition Advisor", desc: "Micronutrient tracking & dietary supplements", gradient: "from-[#00B894] to-[#0A7764]", emoji: "broccoli" },
+  { id: "wellness-coach", name: "Wellness & Lifestyle Coach", desc: "Guided yoga, workouts, breathing exercises, meditation, and stress management for daily wellness.", gradient: "from-[#6C5CE7] to-[#4834D4]", emoji: "person_in_lotus_position", featured: true },
+  { id: "nutrition-assistant", name: "Nutrition & Diet Assistant", desc: "Personalized diet plans, nutrition tracking, micronutrients, and diabetes-friendly meal guidance.", gradient: "from-[#00B894] to-[#55E6A5]", emoji: "green_salad", featured: true },
+  { id: "mental-health", name: "Mental Health Companion", desc: "Supportive conversations for emotional well-being, mood support, and stress management.", gradient: "from-[#74B9FF] to-[#A29BFE]", emoji: "person_getting_massage" },
+  { id: "womens-care", name: "Women's & Pregnancy Care", desc: "Guidance through pregnancy stages, maternal health advice, and postpartum care.", gradient: "from-[#FD79A8] to-[#E84393]", emoji: "breast_feeding" },
+  { id: "family-health", name: "Family Health Assistant", desc: "Health support for children and seniors, vaccination reminders, and caregiving guidance.", gradient: "from-[#B8860B] to-[#DAA520]", emoji: "older_person" },
+  { id: "medical-support", name: "Medical Support Assistant", desc: "Emergency first aid instructions and recovery guidance after medical procedures.", gradient: "from-[#FF6B6B] to-[#EE5A24]", emoji: "ambulance" }
 ]
 
 const emojiMap: Record<string, string> = {
-  person_in_lotus_position: "YT",
-  green_salad: "DP",
+  person_in_lotus_position: "WL",
+  green_salad: "ND",
   person_getting_massage: "MH",
-  flexed_biceps: "FC",
-  breast_feeding: "PC",
-  older_person: "EC",
-  stethoscope: "DM",
-  ambulance: "FA",
-  hospital: "PS",
-  baby: "CH",
-  wind_face: "SR",
-  broccoli: "NA",
+  breast_feeding: "WP",
+  older_person: "FH",
+  ambulance: "MS",
 }
 
 export default function AIHealthPage() {
