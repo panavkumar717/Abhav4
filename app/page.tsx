@@ -7,18 +7,17 @@ import Link from 'next/link'
 
 const STATS = [
   { value: '30 Cr+', label: 'ABHA Accounts Created', icon: '🏥' },
-  { value: '50,000+', label: 'Healthcare Facilities', icon: '🏨' },
-  { value: '28', label: 'States & UTs Covered', icon: '🗺️' },
+  { value: '50,000+', label: 'Healthcare Facilities Connected', icon: '🏨' },
+  { value: '28', label: 'States & Union Territories Covered', icon: '🗺️' },
   { value: '₹75,000 Cr', label: 'Annual Health Budget', icon: '💚' },
 ]
 
 const FEATURES = [
-  { icon: '🔒', title: 'Secure Digital Health ID', desc: 'Get a unique 14-digit ABHA number linked to your health records' },
-  { icon: '📱', title: 'Universal Access', desc: 'Access your health records anytime, anywhere using your ABHA ID' },
-  { icon: '🤝', title: 'Healthcare Integration', desc: 'Connect with hospitals, clinics, and diagnostic labs nationwide' },
-  { icon: '🌍', title: 'Multi-Language Support', desc: 'Available in Hindi, English, Tamil, Telugu, Bengali & more' },
-  { icon: '🔐', title: 'Privacy First', desc: 'You control who sees your health data — consent-based sharing' },
-  { icon: '💊', title: 'Complete Health Profile', desc: 'Store prescriptions, lab reports, and vaccination records digitally' },
+  { icon: '🔒', title: 'Secure 14-digit Digital Health ID', desc: 'Get a unique 14-digit ABHA number linked to your health records' },
+  { icon: '📱', title: 'Universal access to health records', desc: 'Access your health records anytime, anywhere using your ABHA ID' },
+  { icon: '🔐', title: 'Consent-based data sharing', desc: 'You control who sees your health data with explicit, revocable consent' },
+  { icon: '🤝', title: 'Nationwide hospital integration', desc: 'Connect with hospitals, clinics, and diagnostic labs nationwide' },
+  { icon: '🛡️', title: 'Privacy-first healthcare system', desc: 'Built by the government with industry-leading security and privacy standards' },
 ]
 
 export default function LandingPage() {
@@ -187,14 +186,16 @@ export default function LandingPage() {
             border: '1px solid rgba(34, 197, 94, 0.3)',
             marginBottom: 20,
           }}>
-            <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-primary)' }}>🇮🇳 National Health Authority · ABDM</span>
+            <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-primary)' }}>
+              🇮🇳 Government of India Digital Health Ecosystem | National Health Authority · ABDM
+            </span>
           </div>
 
           <h1 style={{
             fontSize: 'clamp(32px,6vw,64px)',
             fontWeight: 900,
             lineHeight: 1.1,
-            marginBottom: 20,
+            marginBottom: 16,
             color: 'var(--color-text)',
           }}>
             Your Digital Health Identity<br />
@@ -204,9 +205,19 @@ export default function LandingPage() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}>
-              Powered by ABHA
+              for India
             </span>
           </h1>
+
+          <p style={{
+            fontSize: 'clamp(18px,2.5vw,22px)',
+            fontWeight: 600,
+            color: 'var(--color-primary)',
+            marginBottom: 20,
+            letterSpacing: '0.5px',
+          }}>
+            One ID. One Health Record. Anywhere in India.
+          </p>
 
           <p style={{
             fontSize: 'clamp(15px,2vw,18px)',
@@ -215,8 +226,7 @@ export default function LandingPage() {
             margin: '0 auto 36px',
             lineHeight: 1.7,
           }}>
-            Ayushman Bharat Digital Mission (ABDM) is creating a digital health ecosystem
-            for every Indian. Your ABHA ID connects you to all healthcare services seamlessly.
+            Create your ABHA ID and securely access your prescriptions, lab reports, and medical history from anywhere in India.
           </p>
 
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -244,7 +254,7 @@ export default function LandingPage() {
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}
               >
-                Get Started <ArrowRight size={18} />
+                Create Your ABHA ID <ArrowRight size={18} />
               </button>
             </Link>
 
@@ -272,7 +282,7 @@ export default function LandingPage() {
                   e.currentTarget.style.color = 'var(--color-text)'
                 }}
               >
-                <ExternalLink size={16} /> Create ABHA Number
+                <ExternalLink size={16} /> Explore Health Services
               </button>
             </a>
           </div>
@@ -380,10 +390,10 @@ export default function LandingPage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {[
-              { step: '01', title: 'Create Your ABHA', desc: 'Register using Aadhaar or mobile number at any ABDM-enabled facility' },
-              { step: '02', title: 'Link Health Records', desc: 'Connect your health records from hospitals, clinics, and labs' },
-              { step: '03', title: 'Consent-Based Sharing', desc: 'Share your health data securely with doctors and hospitals' },
-              { step: '04', title: 'AI-Powered Insights', desc: 'Get personalized health recommendations based on your medical history' },
+              { step: '01', title: 'Create Your ABHA', desc: 'Register using Aadhaar or mobile number at any ABDM-enabled facility.' },
+              { step: '02', title: 'Link Your Health Records', desc: 'Connect your medical histories from hospitals, clinics, and diagnostic labs.' },
+              { step: '03', title: 'Secure Consent-Based Sharing', desc: 'Share your health data securely with doctors and hospitals.' },
+              { step: '04', title: 'Receive AI Health Insights', desc: 'Get personalized health recommendations based on your unique medical history.' },
             ].map(s => (
               <div key={s.step} style={{
                 display: 'flex',
@@ -440,9 +450,9 @@ export default function LandingPage() {
             National Health Authority
           </a>
         </div>
-        <p style={{ fontSize: 12, color: 'var(--color-text4)' }}>
-          🇮🇳 Government of India · National Health Authority · Ayushman Bharat Digital Mission<br />
-          This is a demo application for educational purposes.
+        <p style={{ fontSize: 13, color: 'var(--color-text4)', lineHeight: 1.5, maxWidth: 600, margin: '0 auto' }}>
+          🇮🇳 Government of India · National Health Authority · Ayushman Bharat Digital Mission<br /><br />
+          ⚠️ This is a demonstration interface inspired by the Ayushman Bharat Digital Mission (ABDM) and is built for educational purposes. It is not an official government service.
         </p>
       </footer>
     </div>
