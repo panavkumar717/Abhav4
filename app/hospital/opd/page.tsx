@@ -2,10 +2,12 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Mic, Volume2, Loader2, CheckCircle2, Printer, ArrowRight, LogOut } from "lucide-react"
+import { Mic, Volume2, Loader2, CheckCircle2, Printer, ArrowRight, LogOut, Keyboard } from "lucide-react"
 import { AbhaLogo } from "@/components/abha/logo"
 import { AnimatedBackground } from "@/components/abha/animated-background"
 import { ThemeToggle } from "@/components/abha/theme-toggle"
+import { ManualRegistrationForm } from "@/components/opd/ManualRegistrationForm"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 type Status = "idle" | "listening" | "processing" | "speaking" | "complete"
@@ -29,6 +31,7 @@ export default function OPDDashboard() {
   const [currentMsgIndex, setCurrentMsgIndex] = useState(0)
   const [displayedText, setDisplayedText] = useState("")
   const [showComplete, setShowComplete] = useState(false)
+  const [showManualForm, setShowManualForm] = useState(false)
   const chatRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -175,18 +178,46 @@ export default function OPDDashboard() {
           {/* Instruction text */}
           <div className="text-center px-4">
             {status === "idle" ? (
-              <motion.button
-                onClick={startConversation}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-2xl font-semibold text-lg text-white"
-                style={{ background: "linear-gradient(135deg, #0A7764, #12B88A)" }}
-              >
-                <span className="flex items-center gap-2">
-                  <Mic size={20} />
-                  Start Registration
-                </span>
-              </motion.button>
+              <>
+                <motion.button
+                  onClick={startConversation}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 rounded-2xl font-semibold text-lg text-white"
+                  style={{ background: "linear-gradient(135deg, #0A7764, #12B88A)" }}
+                >
+                  <span className="flex items-center gap-2">
+                    <Mic size={20} />
+                    Start Registration
+                  </span>
+                </motion.button>
+
+                <div className="mt-4 w-full flex flex-col items-center">
+                  {!showManualForm ? (
+                    <Button
+                      variant="outline"
+                      onClick={() => setShowManualForm(true)}
+                      className="rounded-xl px-6 py-6 border-white/10 bg-white/5 hover:bg-white/10 text-foreground transition-all flex items-center gap-2"
+                    >
+                      <Keyboard size={18} />
+                      Type Details Manually
+                    </Button>
+                  ) : (
+                    <div className="w-full flex flex-col items-center">
+                      <Button
+                        variant="ghost"
+                        onClick={() => setShowManualForm(false)}
+                        className="text-muted-foreground hover:text-foreground mb-2"
+                      >
+                        Cancel Manual Entry
+                      </Button>
+                      <AnimatePresence>
+                        {showManualForm && <ManualRegistrationForm />}
+                      </AnimatePresence>
+                    </div>
+                  )}
+                </div>
+              </>
             ) : (
               <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
                 {status === "listening" ? "Please speak clearly..." : status === "speaking" ? "AI is responding..." : ""}
