@@ -4,6 +4,13 @@ import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { ExternalLink, ArrowRight, Sun, Moon } from 'lucide-react'
 import Link from 'next/link'
+import { HeroProduct } from '@/components/sections/HeroProduct'
+import { ProblemSection } from '@/components/sections/ProblemSection'
+import { ProductFeatures } from '@/components/sections/ProductFeatures'
+import { HowItWorks } from '@/components/sections/HowItWorks'
+import { DemoSection } from '@/components/sections/DemoSection'
+import { ImpactStats } from '@/components/sections/ImpactStats'
+import { TechStack } from '@/components/sections/TechStack'
 
 const STATS = [
   { value: '30 Cr+', label: 'ABHA Accounts Created', icon: '🏥' },
@@ -43,23 +50,20 @@ export default function LandingPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--color-bg)', overflowX: 'hidden' }}>
       {/* Navbar */}
-      <nav style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '16px 5%',
-        borderBottom: '1px solid var(--color-border)',
-        background: 'var(--color-bg)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        backdropFilter: 'blur(10px)',
-      }}>
+      <nav
+        className="bg-white dark:bg-[#071a17] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-[100] backdrop-blur-md transition-colors"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '16px 5%',
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 24 }}>🏥</span>
           <div>
-            <div style={{ fontWeight: 800, fontSize: 16, lineHeight: 1 }}>ABHA Mission</div>
-            <div style={{ fontSize: 10, color: 'var(--color-text4)', letterSpacing: 1 }}>AYUSHMAN BHARAT</div>
+            <div className="text-gray-900 dark:text-white" style={{ fontWeight: 800, fontSize: 16, lineHeight: 1 }}>ABHA Mission</div>
+            <div className="text-gray-500 dark:text-gray-400" style={{ fontSize: 10, letterSpacing: 1 }}>AYUSHMAN BHARAT</div>
           </div>
         </div>
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
@@ -191,13 +195,15 @@ export default function LandingPage() {
             </span>
           </div>
 
-          <h1 style={{
-            fontSize: 'clamp(32px,6vw,64px)',
-            fontWeight: 900,
-            lineHeight: 1.1,
-            marginBottom: 16,
-            color: 'var(--color-text)',
-          }}>
+          <h1
+            className="text-gray-900 dark:text-white"
+            style={{
+              fontSize: 'clamp(32px,6vw,64px)',
+              fontWeight: 900,
+              lineHeight: 1.1,
+              marginBottom: 16,
+            }}
+          >
             Your Digital Health Identity<br />
             <span style={{
               background: 'linear-gradient(135deg,#22c55e,#10b981)',
@@ -219,13 +225,15 @@ export default function LandingPage() {
             One ID. One Health Record. Anywhere in India.
           </p>
 
-          <p style={{
-            fontSize: 'clamp(15px,2vw,18px)',
-            color: 'var(--color-text2)',
-            maxWidth: 600,
-            margin: '0 auto 36px',
-            lineHeight: 1.7,
-          }}>
+          <p
+            className="text-gray-600 dark:text-gray-300"
+            style={{
+              fontSize: 'clamp(15px,2vw,18px)',
+              maxWidth: 600,
+              margin: '0 auto 36px',
+              lineHeight: 1.7,
+            }}
+          >
             Create your ABHA ID and securely access your prescriptions, lab reports, and medical history from anywhere in India.
           </p>
 
@@ -286,6 +294,9 @@ export default function LandingPage() {
               </button>
             </a>
           </div>
+
+          {/* Product Hero Enhancement */}
+          <HeroProduct />
         </div>
 
         {/* Stats */}
@@ -300,24 +311,29 @@ export default function LandingPage() {
           margin: '60px auto 0',
         }}>
           {STATS.map(s => (
-            <div key={s.label} style={{
+            <div key={s.label} className="bg-white dark:bg-[#0f2e2a] border border-gray-200 dark:border-gray-800 shadow-sm dark:shadow-none transition-all duration-300" style={{
               borderRadius: 'var(--radius-lg)',
               padding: '20px 16px',
               textAlign: 'center',
-              border: '1px solid var(--color-border)',
-              background: resolvedTheme === 'dark' ? 'rgba(255,255,255,0.02)' : 'rgba(10,15,30,0.03)',
               backdropFilter: 'blur(10px)',
             }}>
               <div style={{ fontSize: 28 }}>{s.icon}</div>
-              <div style={{ fontSize: 24, fontWeight: 900, color: 'var(--color-primary-light)', marginTop: 6 }}>{s.value}</div>
-              <div style={{ fontSize: 12, color: 'var(--color-text4)', marginTop: 4 }}>{s.label}</div>
+              <div className="text-primary dark:text-primary-light" style={{ fontSize: 24, fontWeight: 900, marginTop: 6 }}>{s.value}</div>
+              <div className="text-gray-500 dark:text-gray-400" style={{ fontSize: 12, marginTop: 4 }}>{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
+      {/* ABHA+ Product Sections */}
+      <ProblemSection />
+      <ProductFeatures />
+      <HowItWorks />
+      <DemoSection />
+      <ImpactStats />
+
       {/* About ABHA */}
-      <section style={{ padding: '60px 5%', background: 'var(--color-bg2)' }}>
+      <section className="bg-gray-50 dark:bg-[#0b1f1c] border-y border-gray-100 dark:border-gray-800 transition-colors" style={{ padding: '60px 5%' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <div style={{
@@ -332,13 +348,12 @@ export default function LandingPage() {
               <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-info)' }}>About ABHA</span>
             </div>
 
-            <h2 style={{ fontSize: 'clamp(24px,4vw,40px)', fontWeight: 800, marginBottom: 16, color: 'var(--color-text)' }}>
+            <h2 className="text-gray-900 dark:text-white" style={{ fontSize: 'clamp(24px,4vw,40px)', fontWeight: 800, marginBottom: 16 }}>
               What is ABHA?
             </h2>
 
-            <p style={{
+            <p className="text-gray-600 dark:text-gray-300" style={{
               fontSize: 15,
-              color: 'var(--color-text2)',
               lineHeight: 1.8,
               maxWidth: 700,
               margin: '0 auto',
@@ -349,42 +364,29 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 16 }}>
-            {FEATURES.map(f => (
-              <div key={f.title} style={{
-                padding: 20,
-                borderRadius: 'var(--radius-lg)',
-                border: '1px solid var(--color-border)',
-                background: 'var(--color-bg)',
-                display: 'flex',
-                gap: 14,
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-              }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-primary)'
-                  e.currentTarget.style.transform = 'translateY(-4px)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-border)'
-                  e.currentTarget.style.transform = 'translateY(0)'
-                }}
-              >
-                <span style={{ fontSize: 28 }}>{f.icon}</span>
-                <div>
-                  <h3 style={{ fontWeight: 700, fontSize: 15, marginBottom: 6, color: 'var(--color-text)' }}>{f.title}</h3>
-                  <p style={{ fontSize: 13, color: 'var(--color-text3)', lineHeight: 1.6 }}>{f.desc}</p>
-                </div>
+          {FEATURES.map(f => (
+            <div key={f.title} className="bg-white dark:bg-[#0f2e2a] border border-gray-200 dark:border-gray-800 shadow-sm dark:shadow-none hover:border-primary/50 transition-all duration-300 group" style={{
+              padding: 20,
+              borderRadius: 'var(--radius-lg)',
+              display: 'flex',
+              gap: 14,
+              cursor: 'pointer',
+            }}
+            >
+              <span style={{ fontSize: 28 }}>{f.icon}</span>
+              <div>
+                <h3 className="text-gray-900 dark:text-white" style={{ fontWeight: 700, fontSize: 15, marginBottom: 6 }}>{f.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400" style={{ fontSize: 13, lineHeight: 1.6 }}>{f.desc}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* How ABDM Works */}
-      <section style={{ padding: '60px 5%', background: 'var(--color-bg)' }}>
+      <section className="bg-white dark:bg-[#071a17] transition-colors" style={{ padding: '60px 5%' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 24, textAlign: 'center', color: 'var(--color-text)' }}>
+          <h2 className="text-gray-900 dark:text-white" style={{ fontSize: 28, fontWeight: 800, marginBottom: 24, textAlign: 'center' }}>
             How ABDM Works
           </h2>
 
@@ -395,14 +397,12 @@ export default function LandingPage() {
               { step: '03', title: 'Secure Consent-Based Sharing', desc: 'Share your health data securely with doctors and hospitals.' },
               { step: '04', title: 'Receive AI Health Insights', desc: 'Get personalized health recommendations based on your unique medical history.' },
             ].map(s => (
-              <div key={s.step} style={{
+              <div key={s.step} className="bg-gray-50 dark:bg-[#0b1f1c] border border-gray-100 dark:border-gray-800 transition-colors" style={{
                 display: 'flex',
                 gap: 16,
                 alignItems: 'flex-start',
                 padding: 20,
-                border: '1px solid var(--color-border)',
                 borderRadius: 'var(--radius-lg)',
-                background: 'var(--color-bg2)',
               }}>
                 <div style={{
                   width: 44,
@@ -420,20 +420,19 @@ export default function LandingPage() {
                   {s.step}
                 </div>
                 <div>
-                  <h4 style={{ fontWeight: 700, marginBottom: 4, color: 'var(--color-text)' }}>{s.title}</h4>
-                  <p style={{ fontSize: 13, color: 'var(--color-text3)', lineHeight: 1.6 }}>{s.desc}</p>
+                  <h4 className="text-gray-900 dark:text-white" style={{ fontWeight: 700, marginBottom: 4 }}>{s.title}</h4>
+                  <p className="text-gray-600 dark:text-gray-400" style={{ fontSize: 13, lineHeight: 1.6 }}>{s.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+      <TechStack />
 
       {/* Footer */}
-      <footer style={{
+      <footer className="bg-gray-50 dark:bg-[#0b1f1c] border-t border-gray-200 dark:border-gray-800 transition-colors" style={{
         padding: '32px 5%',
-        borderTop: '1px solid var(--color-border)',
-        background: 'var(--color-bg2)',
         textAlign: 'center',
       }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 16, flexWrap: 'wrap' }}>
